@@ -1,3 +1,7 @@
+body{
+  background-color: #FEFDE5;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.selectSort .mantine-Select-input::placeholder {
+  color: #D5EAF5;
+}
+
+/* Hover Option */
+.mantine-Select-option:hover {
+  background-color: #F5F4D7;
 }

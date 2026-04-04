@@ -1,14 +1,27 @@
-import { Flex, Button, Text, Box } from "@mantine/core";
-
+import { Flex, Button, Text } from "@mantine/core";
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
     return ( 
-        <Flex h={80} bg="#5682B4" align="center" justify="space-between">
+        <Flex h="10vh" bg="#5682B4" align="center" justify="space-between">
             <Flex>
-                <Button h={45} w={175} mx={30} bg="#D5EAF5" c="#5682B4" radius={30}>
+                <Button h={45} w={175} radius={30} mx={30} 
+                        c={location.pathname.includes("/meineWuensche") ? "#5682B4" : "#D5EAF5"}
+                        bg={location.pathname.includes("/meineWuensche") ? "#D5EAF5" : "#5682B4"}
+                        onClick={() => navigate(`/meineWuensche`)}
+                >
                     Meine Wünsche
                 </Button>
-                <Button h={45} w={175} bg="#D5EAF5" c="#5682B4" radius={30}>
+                <Button h={45} w={175} radius={30}
+                        c={location.pathname.includes("/geschenkeFinden") ? "#5682B4" : "#D5EAF5"}
+                        bg={location.pathname.includes("/geschenkeFinden") ? "#D5EAF5" : "#5682B4"}
+                        onClick={() => navigate(`/geschenkeFinden`)}
+                >
                     Geschenke finden
                 </Button>
             </Flex>
@@ -25,8 +38,11 @@ const Navbar = () => {
                     </Text>
                 </Flex>
             </Flex>
-            <Flex>
-            </Flex>
+            <Button variant="transparent" c="#D5EAF5" mr={10}  
+                    onClick={() => navigate(`/help`)}
+            >
+                <QuestionMarkIcon sx={{ fontSize: 40 }} />
+            </Button>
         </Flex>
     );
 }
