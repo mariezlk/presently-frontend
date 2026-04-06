@@ -23,8 +23,6 @@ const MyWishlist = () => {
         fetchData()
     }, [])
 
-    console.log(wishes)
-
     return (  
         <Grid mt={30}>
             {wishes?.filter((wish) => wish.fk_uid == user).map((wish) => (
