@@ -1,9 +1,10 @@
 import { Flex, Title, Button } from "@mantine/core";
 import InputRow from "./InputRow";
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from "react";
 
-const AddWish = ({ onClose }) => {
+const EditWish = ({ onClose }) => {
 
     const categoryData = ["Haushalt", "Kleidung", "Kosmetik", "Lebensmittel", "Spielzeug", "Sport", "Technik", "Sonstiges"]
     const eventData = ["Geburtstag", "Hochzeit", "Weihnachten", "Ostern", "Abschluss"]
@@ -68,7 +69,7 @@ const AddWish = ({ onClose }) => {
     return (  
         <Flex w="40vw" h="70vh" direction="column" align="center" justify="center">
             <Title c="#5682B4" fz={35} mb={30} mt={-30}>
-                Wunsch hinzufügen
+                Wunsch bearbeiten oder löschen
             </Title>
             <InputRow title="Titel" placeholder="" inputType="text" value={title} onChange={setTitle}/>
             <InputRow title="Link" placeholder="" inputType="text" value={link} onChange={setLink}/>
@@ -77,15 +78,20 @@ const AddWish = ({ onClose }) => {
             <InputRow title="Event" placeholder="" inputType="select" selectData={eventData} value={event} onChange={setEvent}/>
             <InputRow title="Bild" placeholder="" inputType="text" value={picture} onChange={setPicture}/>
             <InputRow title="Favorit" placeholder="" inputType="check" value={favorit} onChange={setFavorit}/>
-            <Flex w="100%" justify="center" mt={10} mb={-30}>
-                <Button w="49%" h={45} bg="#5682B4" c="#D5EAF5" fz="18px"
-                        leftSection={<AddIcon />} onClick={handleSubmit}
+            <Flex w="100%" justify="space-between" mt={10} mb={-30}>
+                <Button w="49%" h={45} bg="#F5F4D7" c="#5682B4" fz="18px"
+                        leftSection={<DeleteIcon />} onClick={handleSubmit}
                 >
-                    Wunsch hinzufügen
+                    Wunsch löschen
+                </Button>
+                <Button w="49%" h={45} bg="#5682B4" c="#D5EAF5" fz="18px"
+                        leftSection={<EditIcon />} onClick={handleSubmit}
+                >
+                    Wunsch bearbeiten
                 </Button>
             </Flex>
         </Flex>
     );
 }
  
-export default AddWish;
+export default EditWish;

@@ -1,181 +1,208 @@
 {
-    "users":[
-        {
-            "uid": 1,
-            "username": "maxmusti",
-            "e-mail": "max-mustermann@gmail.de",
-            "password": "123456"
-        },
-        {
-            "uid": 2,
-            "username": "anjaaa",
-            "e-mail": "anja-anker@gmail.de",
-            "password": "123456"
-        },
-        {
-            "uid": 3,
-            "username": "erikerichson",
-            "e-mail": "erik-erichson@gmail.de",
-            "password": "123456"
-        },
-        {
-            "uid": 4,
-            "username": "fishi",
-            "e-mail": "lisa-fisch@gmail.de",
-            "password": "123456"
-        }
-    ],
-    "events":[
-        {
-            "eid": 1,
-            "ename": "Geburtstag"
-        },
-        {
-            "eid": 2,
-            "ename": "Hochzeit"
-        },
-        {
-            "eid": 3,
-            "ename": "Weihnachten"
-        },
-        {
-            "eid": 4,
-            "ename": "Ostern"
-        },
-        {
-            "eid": 5,
-            "ename": "Abschluss"
-        }
-    ],
-    "categories":[
-        {
-            "cid": 1,
-            "cname": "Haushalt"
-        },
-        {
-            "cid": 2,
-            "cname": "Kleidung"
-        },
-        {
-            "cid": 3,
-            "cname": "Kosmetik"
-        },
-        {
-            "cid": 4,
-            "cname": "Lebensmittel"
-        },
-        {
-            "cid": 5,
-            "cname": "Spielzeug"
-        },
-        {
-            "cid": 6,
-            "cname": "Sport"
-        },
-        {
-            "cid": 7,
-            "cname": "Technik"
-        },
-        {
-            "cid": 8,
-            "cname": "Sonstiges"
-        }
-    ],
-    "wishes":[
-        {
-            "wid": 1,
-            "fk_uid": 1,
-            "fk_cid": 3,
-            "title": "Skin-Care Artikel",
-            "price": 25,
-            "isFavorit": true,
-            "picture": "https://ada-cosmetics.com/wp-content/uploads/2024/07/Cosmetic_Ingredients_1-1536x1024.jpg",
-            "url": ""
-        },
-        {
-            "wid": 2,
-            "fk_uid": 1,
-            "fk_cid": 2,
-            "title": "Tommy Hilfiger Gürtel",
-            "price": 24.95,
-            "isFavorit": true,
-            "picture": "https://tommy-europe.scene7.com/is/image/TommyEurope/AM0AM10335_BDS_main_listing?$listing$",
-            "url": "https://de.tommy.com/denton-lederg%C3%BCrtel-mit-flag-aus-emaille-am0am13536bds"
-        },
-        {
-            "wid": 3,
-            "fk_uid": 1,
-            "fk_cid": 2,
-            "title": "Nike Performance Short",
-            "price": 39.99,
-            "isFavorit": true,
-            "picture": "https://img01.ztat.net/article/spp-media-p1/b160a473a401432aa1e5abde0b264350/c864371ac44847e1984fa806ce75a172.jpg?imwidth=762",
-            "url": "https://www.zalando.fr/nike-performance-short-short-de-sport-blacksilver-n1241e1nz-q11.html"
-        },
-        {
-            "wid": 4,
-            "fk_uid": 1,
-            "fk_cid": 2,
-            "fk_eid": 1,
-            "title": "Nike Dunks Oil Greene",
-            "price": 180,
-            "isFavorit": false,
-            "picture": "https://sneakerbardetroit.com/wp-content/uploads/2023/05/Nike-Dunk-Low-White-Oil-Green-Cargo-Khaki-FN6882-100.jpeg",
-            "url": "https://sneakerbardetroit.com/nike-dunk-low-white-olive-fn6882-100/"
-        },
-        {
-            "wid": 5,
-            "fk_uid": 1,
-            "fk_cid": 1,
-            "title": "Ritzenhoff Weingläser",
-            "price": 18.99,
-            "isFavorit": false,
-            "picture": "https://media.xxxlutz.com/i/xxxlutz/PIlI6YDbs6AMnqjt12Zduu6g/?fmt=auto&%24hq%24=&w=1200",
-            "url": "https://www.xxxlutz.de/p/ritzenhoff-spritzerglas-sommersonett-544-ml-2-teilig-004537027701?utm_term=004537027701&utm_content=null_70_product-listing-ad_7008_glaeser_soon&view=mplp&utm_source=bing-s&utm_medium=shopping&utm_campaign=null_sel_cluster-b_ssc_sal-do_on_sea-sho_ltz-de&msclkid=7489adc8b1431ff9d89ec406bbcfe8fc"
-        },
-        {
-            "wid": 6,
-            "fk_uid": 1,
-            "fk_cid": 7,
-            "fk_eid": 1,
-            "title": "Apple Watch Serie 11",
-            "price": 359,
-            "isFavorit": false,
-            "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",
-            "url": "https://www.apple.com/es/apple-watch-series-11/"
-        },
-        {
-            "wid": 7,
-            "fk_uid": 1,
-            "fk_cid": 4,
-            "fk_eid": 4,
-            "title": "Kinder Happy Hippo",
-            "price": 2.39,
-            "isFavorit": false,
-            "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
-            "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE"
-        },
-        {
-            "wid": 6,
-            "fk_uid": 2,
-            "fk_cid": 7,
-            "fk_eid": 1,
-            "title": "Apple Watch Serie 11",
-            "price": 359,
-            "isFavorit": false,
-            "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",
-            "url": "https://www.apple.com/es/apple-watch-series-11/"
-        },
-        {
-            "wid": 7,
-            "fk_uid": 2,
-            "fk_cid": 4,
-            "fk_eid": 4,
-            "title": "Kinder Happy Hippo",
-            "price": 2.39,
-            "isFavorit": false,
-            "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
-            "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE"
-        }
-    ]
+  "users": [
+    {
+      "uid": 1,
+      "username": "maxmusti",
+      "e-mail": "max-mustermann@gmail.de",
+      "password": "123456",
+      "id": "xqfZBodU9Zw"
+    },
+    {
+      "uid": 2,
+      "username": "anjaaa",
+      "e-mail": "anja-anker@gmail.de",
+      "password": "123456",
+      "id": "FcoslYVTh04"
+    },
+    {
+      "uid": 3,
+      "username": "erikerichson",
+      "e-mail": "erik-erichson@gmail.de",
+      "password": "123456",
+      "id": "temJrRFXgrM"
+    },
+    {
+      "uid": 4,
+      "username": "fishi",
+      "e-mail": "lisa-fisch@gmail.de",
+      "password": "123456",
+      "id": "lBAOSTvP4rg"
+    }
+  ],
+  "events": [
+    {
+      "eid": 1,
+      "ename": "Geburtstag",
+      "id": "mwk4-9200FA"
+    },
+    {
+      "eid": 2,
+      "ename": "Hochzeit",
+      "id": "peNYTt56blk"
+    },
+    {
+      "eid": 3,
+      "ename": "Weihnachten",
+      "id": "nk25so__j_w"
+    },
+    {
+      "eid": 4,
+      "ename": "Ostern",
+      "id": "FN_RUrw6ezY"
+    },
+    {
+      "eid": 5,
+      "ename": "Abschluss",
+      "id": "ttpXrAZtmwQ"
+    }
+  ],
+  "categories": [
+    {
+      "cid": 1,
+      "cname": "Haushalt",
+      "id": "dW2gT0rbPWE"
+    },
+    {
+      "cid": 2,
+      "cname": "Kleidung",
+      "id": "WjTjtMDPvH4"
+    },
+    {
+      "cid": 3,
+      "cname": "Kosmetik",
+      "id": "tkYwBbqzRO4"
+    },
+    {
+      "cid": 4,
+      "cname": "Lebensmittel",
+      "id": "Jf3kM_HecRU"
+    },
+    {
+      "cid": 5,
+      "cname": "Spielzeug",
+      "id": "icgrEA15TuM"
+    },
+    {
+      "cid": 6,
+      "cname": "Sport",
+      "id": "iarDWW1qrCs"
+    },
+    {
+      "cid": 7,
+      "cname": "Technik",
+      "id": "YFUaeSUVI9U"
+    },
+    {
+      "cid": 8,
+      "cname": "Sonstiges",
+      "id": "wPXN2fC3xYE"
+    }
+  ],
+  "wishes": [
+    {
+      "wid": 1,
+      "fk_uid": 1,
+      "fk_cid": 3,
+      "title": "Skin-Care Artikel",
+      "price": 25,
+      "isFavorit": true,
+      "picture": "https://ada-cosmetics.com/wp-content/uploads/2024/07/Cosmetic_Ingredients_1-1536x1024.jpg",
+      "url": "",
+      "id": "kRJV1NPqfcA"
+    },
+    {
+      "wid": 2,
+      "fk_uid": 1,
+      "fk_cid": 2,
+      "title": "Tommy Hilfiger Gürtel",
+      "price": 24.95,
+      "isFavorit": true,
+      "picture": "https://tommy-europe.scene7.com/is/image/TommyEurope/AM0AM10335_BDS_main_listing?$listing$",
+      "url": "https://de.tommy.com/denton-lederg%C3%BCrtel-mit-flag-aus-emaille-am0am13536bds",
+      "id": "5TCRjjDJ2W0"
+    },
+    {
+      "wid": 3,
+      "fk_uid": 1,
+      "fk_cid": 2,
+      "title": "Nike Performance Short",
+      "price": 39.99,
+      "isFavorit": true,
+      "picture": "https://img01.ztat.net/article/spp-media-p1/b160a473a401432aa1e5abde0b264350/c864371ac44847e1984fa806ce75a172.jpg?imwidth=762",
+      "url": "https://www.zalando.fr/nike-performance-short-short-de-sport-blacksilver-n1241e1nz-q11.html",
+      "id": "KC-2AjNLMhI"
+    },
+    {
+      "wid": 4,
+      "fk_uid": 1,
+      "fk_cid": 2,
+      "fk_eid": 1,
+      "title": "Nike Dunks Oil Greene",
+      "price": 180,
+      "isFavorit": false,
+      "picture": "https://sneakerbardetroit.com/wp-content/uploads/2023/05/Nike-Dunk-Low-White-Oil-Green-Cargo-Khaki-FN6882-100.jpeg",
+      "url": "https://sneakerbardetroit.com/nike-dunk-low-white-olive-fn6882-100/",
+      "id": "IKgjM9hrBmo"
+    },
+    {
+      "wid": 5,
+      "fk_uid": 1,
+      "fk_cid": 1,
+      "title": "Ritzenhoff Weingläser",
+      "price": 18.99,
+      "isFavorit": false,
+      "picture": "https://media.xxxlutz.com/i/xxxlutz/PIlI6YDbs6AMnqjt12Zduu6g/?fmt=auto&%24hq%24=&w=1200",
+      "url": "https://www.xxxlutz.de/p/ritzenhoff-spritzerglas-sommersonett-544-ml-2-teilig-004537027701?utm_term=004537027701&utm_content=null_70_product-listing-ad_7008_glaeser_soon&view=mplp&utm_source=bing-s&utm_medium=shopping&utm_campaign=null_sel_cluster-b_ssc_sal-do_on_sea-sho_ltz-de&msclkid=7489adc8b1431ff9d89ec406bbcfe8fc",
+      "id": "uqOw0qk81EM"
+    },
+    {
+      "wid": 6,
+      "fk_uid": 1,
+      "fk_cid": 7,
+      "fk_eid": 1,
+      "title": "Apple Watch Serie 11",
+      "price": 359,
+      "isFavorit": false,
+      "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",
+      "url": "https://www.apple.com/es/apple-watch-series-11/",
+      "id": "leamvw2agYo"
+    },
+    {
+      "wid": 7,
+      "fk_uid": 1,
+      "fk_cid": 4,
+      "fk_eid": 4,
+      "title": "Kinder Happy Hippo",
+      "price": 2.39,
+      "isFavorit": false,
+      "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
+      "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
+      "id": "CUBhEZBOF4Y"
+    },
+    {
+      "wid": 6,
+      "fk_uid": 2,
+      "fk_cid": 7,
+      "fk_eid": 1,
+      "title": "Apple Watch Serie 11",
+      "price": 359,
+      "isFavorit": false,
+      "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",
+      "url": "https://www.apple.com/es/apple-watch-series-11/",
+      "id": "l95oeAbneRI"
+    },
+    {
+      "wid": 7,
+      "fk_uid": 2,
+      "fk_cid": 4,
+      "fk_eid": 4,
+      "title": "Kinder Happy Hippo",
+      "price": 2.39,
+      "isFavorit": false,
+      "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
+      "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
+      "id": "s93U8F2Cfcw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

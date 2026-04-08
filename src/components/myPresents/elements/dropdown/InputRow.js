@@ -1,0 +1,62 @@
+import { Flex, Input, Text, Select, Checkbox } from "@mantine/core";
+import CreateIcon from '@mui/icons-material/Create';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+const InputRow = ({title, placeholder, inputType, selectData, value, onChange}) => {
+
+    return (  
+        <Flex w="100%" my={10} align="center" justify="space-between">
+            <Text c="#5682B4" fz={25}>{title}:</Text>
+            {inputType == "text" && 
+                <Input w="50%" placeholder={placeholder == "" ? "eingeben..." : placeholder} 
+                    rightSection={<CreateIcon style={{ color: '#5682B4' }}/>} 
+                    value={value} onChange={(e) => onChange(e.target.value)}
+                    styles={{
+                        input: {
+                            backgroundColor: '#F5F4D7',
+                            borderColor: '#F5F4D7',
+                            color: "#5682B4"
+                        },
+                            placeholder: {
+                            color: '#5682B4',
+                        }
+                    }}
+                />
+            }
+            {inputType == "select" && 
+                <Select w="50%" placeholder={placeholder == "" ? "wählen..." : placeholder} 
+                        comboboxProps={{ withinPortal: false }}
+                        data={selectData}
+                        rightSection={<ExpandMoreIcon style={{ color: '#5682B4' }}/>} 
+                        value={value}
+                        onChange={onChange} 
+                        styles={{
+                            input: {
+                                backgroundColor: '#F5F4D7',
+                                borderColor: '#F5F4D7',
+                                color: "#5682B4"
+                            },
+                            placeholder: {
+                                color: '#5682B4',
+                            },
+                            dropdown: {
+                                backgroundColor: "#FEFDE5",
+                                borderColor: '#5682B4',
+                                color: '#5682B4',
+                            }
+                        }}
+                />
+            }
+            {inputType == "check" &&
+                <Flex w="50%" justify="center" align="center">
+                    <Checkbox size={30} color="#5682B4"
+                              checked={value}
+                              onChange={(e) => onChange(e.currentTarget.checked)}
+                    />
+                </Flex>    
+            }
+        </Flex>
+    );
+}
+ 
+export default InputRow;
