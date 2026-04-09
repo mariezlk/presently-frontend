@@ -1,5 +1,4 @@
 import { Flex, Text, RangeSlider } from "@mantine/core";
-import { useState, useEffect } from "react";
 
 const PriceFilter = ({addFilter, minPrice, maxPrice, priceRange, setPriceRange}) => {
 

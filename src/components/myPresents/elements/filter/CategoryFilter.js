@@ -30,11 +30,11 @@ const CategoryFilter = ({wishes, addFilter, filterList}) => {
             </Text>
             <Grid>
                 {categorys?.map((category) => 
-                    <Grid.Col span={6} mb={-5} >
-                        <Flex justify="space-between" onClick={() => addFilter("Kategorie", category.cname)} style={{cursor: "pointer"}}
+                    <Grid.Col span={6} mb={-5}>
+                        <Flex justify="space-between" align="center" pl={5} h={20} onClick={() => addFilter("Kategorie", category.cname)} style={{cursor: "pointer", borderRadius: "20px"}}
                               bg={filterList.some((fL) => fL.filterName == "Kategorie" && fL.filterValue == category.cname) ? "#5682B4" : "#5682b400"}>
                             <Text fz={13} c={filterList.some((fL) => fL.filterName == "Kategorie" && fL.filterValue == category.cname) ? "#D5EAF5" : "#5682B4"}>{category.cname}</Text>
-                            <Badge h="100%" fz={10} w={30} bg="#F5F4D7" c="#5682B4"
+                            <Badge fz={10} w={30} bg="#F5F4D7" c="#5682B4"
                                    styles={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                             >
                                 {wishes?.filter((w) => w.fk_uid == uid && w.fk_cid == category.cid).length}

@@ -30,7 +30,7 @@ const EventFilter = ({wishes, addFilter, filterList}) => {
             <Flex  justify="center">
                 <Flex direction="column" w="50%">
                     {events?.map((event) => 
-                        <Flex justify="space-between" mb={15} onClick={() => addFilter("Event", event.ename)} style={{cursor: "pointer"}}
+                        <Flex justify="space-between" mb={15} pl={5} onClick={() => addFilter("Event", event.ename)} style={{cursor: "pointer", borderRadius: "20px"}}
                               bg={filterList.some((fL) => fL.filterName == "Event" && fL.filterValue == event.ename) ? "#5682B4" : "#5682b400"}
                         >
                             <Text fz={13} c={filterList.some((fL) => fL.filterName == "Event" && fL.filterValue == event.ename) ? "#D5EAF5" : "#5682B4"}>
