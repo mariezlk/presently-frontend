@@ -1,9 +1,9 @@
-import { Flex, Image, Text, Button, Popover } from "@mantine/core";
+import { Flex, Image, Text, Button, Popover, Box, Badge } from "@mantine/core";
 import StarIcon from '@mui/icons-material/Star';
 import { useState, useEffect } from "react";
 import EditWish from "./dropdown/EditWish";
 
-const WishBox = ({wish}) => {
+const WishBox = ({wish, onSuccess}) => {
 
     const [wishCategory, setWishCategory] = useState();
     const [wishEvent, setWishEvent] = useState()
@@ -32,8 +32,18 @@ const WishBox = ({wish}) => {
     return (  
         <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
             <Popover.Target>
-                <Flex  direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px"}}>
-                    <Image w="100%" h="10vw" src={wish.picture} style={{ borderRadius: "15px"}} />
+                <Flex onClick={() => setOpened(true)} direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px", cursor: "pointer"}}>
+                    <Box style={{ position: "relative" }}>
+                        <Image w="100%" h="10vw" src={wish.picture} style={{ borderRadius: "15px" }} />
+                        {wish.fk_eid &&
+                            <Badge ta="center"
+                                style={{ position: "absolute", top: 4, right: 4, display: "flex", alignItems: "center", justifyContent: "center"}}
+                                bg="#D5EAF5" c="#5682B4"
+                            >
+                                {wishEvent?.find((e) => e.eid == wish.fk_eid)?.ename}
+                            </Badge>
+                        }
+                    </Box>
                     <Text ml={5} size="sm" c="#5682B4">{wishCategory?.find((category) => category.cid == wish.fk_cid).cname}</Text>
                     <Flex c="#5682B4" align="center" justify="center" h="10vh">
                         <Text fw={700} ta="center" w="12vw" size="xl">{wish.title}</Text>
@@ -46,7 +56,7 @@ const WishBox = ({wish}) => {
             </Popover.Target>
             <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
                                         border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
-                <EditWish onClose={() => setOpened(false)}/>
+                <EditWish wish={wish} onClose={() => setOpened(false)} onSuccess={onSuccess}/>
             </Popover.Dropdown>
         </Popover>
     );

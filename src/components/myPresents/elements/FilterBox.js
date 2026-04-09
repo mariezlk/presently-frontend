@@ -1,23 +1,75 @@
-import { Box, Button, Popover } from "@mantine/core";
+import { Box, Button, Divider, Popover } from "@mantine/core";
 import AddIcon from '@mui/icons-material/Add';
 import AddWish from "./dropdown/AddWish";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import CategoryFilter from "./filter/CategoryFilter";
+import EventFilter from "./filter/EventFilter";
+import PriceFilter from "./filter/PriceFilter";
+import TitleFilter from "./filter/TitleFilter";
+import FavoritFilter from "./filter/FavoritFilter";
 
-const FilterBox = () => {
+const FilterBox = ({wishes, onSuccess, filterList, setFilterList}) => {
 
     const [opened, setOpened] = useState()
 
+    const [priceRange, setPriceRange] = useState([0, 500]);
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(500);
+
+    useEffect(() => {
+        if (wishes && wishes.length > 0) {
+            const min = Math.min(...wishes.map((wish) => wish.price));
+            const max = Math.max(...wishes.map((wish) => wish.price));
+            setMinPrice(min);
+            setMaxPrice(max);
+            setPriceRange([min, max]);
+        }
+    }, [wishes]);
+
+    const addFilter = (name, value) => {
+        if (name == "Preis" || name == "Titel"){
+            if(value == ""){
+                setFilterList(filterList.filter((el) => !(el.filterName == name)))
+                return
+            }
+            console.log(value)
+            console.log(`${Math.floor(minPrice)}€ - ${Math.floor(maxPrice)}€`)
+            if(value == `${Math.floor(minPrice)}€ - ${Math.floor(maxPrice)}€`){
+                setFilterList(filterList.filter((el) => !(el.filterName == name)))
+                return
+            }
+            setFilterList(filterList.filter((el) => !(el.filterName == name)))
+            setFilterList((prev) => [...prev, { filterName: name, filterValue: value }])
+            return
+        }
+        if(!filterList.some((el) => el.filterName == name && el.filterValue == value)){
+            setFilterList((prev) => [...prev, { filterName: name, filterValue: value }])
+            return
+        }
+        setFilterList(filterList.filter((el) => !(el.filterName == name && el.filterValue == value)))
+    }
+
     return (  
         <Box w="23vw" h="90vh" bg="#D5EAF5" px="30px" py="15px" style={{ position: "sticky", top: 0, alignSelf: "flex-start" }}>
+            <CategoryFilter wishes={wishes} addFilter={addFilter} filterList={filterList}/>
+            <Divider size={2} color="#5682B4"/>
+            <EventFilter wishes={wishes} addFilter={addFilter} filterList={filterList}/>
+            <Divider size={2} color="#5682B4"/>
+            <FavoritFilter addFilter={addFilter}/>
+            <Divider size={2} color="#5682B4"/>
+            <PriceFilter addFilter={addFilter} minPrice={minPrice} maxPrice={maxPrice} priceRange={priceRange} setPriceRange={setPriceRange}/>
+            <Divider size={2} color="#5682B4"/>
+            <TitleFilter addFilter={addFilter} />
+            <Divider size={2} color="#5682B4"/>
             <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
                 <Popover.Target>
-                    <Button h="10%" fz={20} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
+                    <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
                         Wunsch hinzufügen
                     </Button>
                 </Popover.Target>
                 <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
                                           border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
-                    <AddWish onClose={() => setOpened(false)}/>
+                    <AddWish onClose={() => setOpened(false)} onSuccess={onSuccess}/>
                 </Popover.Dropdown>
             </Popover>
         </Box>

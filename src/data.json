@@ -49,11 +49,6 @@
       "eid": 4,
       "ename": "Ostern",
       "id": "FN_RUrw6ezY"
-    },
-    {
-      "eid": 5,
-      "ename": "Abschluss",
-      "id": "ttpXrAZtmwQ"
     }
   ],
   "categories": [
@@ -133,11 +128,10 @@
       "id": "KC-2AjNLMhI"
     },
     {
-      "wid": 4,
       "fk_uid": 1,
       "fk_cid": 2,
       "fk_eid": 1,
-      "title": "Nike Dunks Oil Greene",
+      "title": "Nike Dunks Oil Green",
       "price": 180,
       "isFavorit": false,
       "picture": "https://sneakerbardetroit.com/wp-content/uploads/2023/05/Nike-Dunk-Low-White-Oil-Green-Cargo-Khaki-FN6882-100.jpeg",
@@ -156,11 +150,10 @@
       "id": "uqOw0qk81EM"
     },
     {
-      "wid": 6,
       "fk_uid": 1,
       "fk_cid": 7,
       "fk_eid": 1,
-      "title": "Apple Watch Serie 11",
+      "title": "Apple Watch Serie 10",
       "price": 359,
       "isFavorit": false,
       "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",

@@ -4,21 +4,38 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from "react";
 
-const EditWish = ({ onClose }) => {
+const EditWish = ({ wish, onClose, onSuccess }) => {
 
     const categoryData = ["Haushalt", "Kleidung", "Kosmetik", "Lebensmittel", "Spielzeug", "Sport", "Technik", "Sonstiges"]
     const eventData = ["Geburtstag", "Hochzeit", "Weihnachten", "Ostern", "Abschluss"]
 
-    const [title, setTitle] = useState("");
-    const [link, setLink] = useState("");
-    const [price, setPrice] = useState("");
-    const [category, setCategory] = useState("");
-    const [event, setEvent] = useState("");
-    const [picture, setPicture] = useState("");
-    const [favorit, setFavorit] = useState("");
+    const [errors, setErrors] = useState({});
 
     const [wishCategory, setWishCategory] = useState();
-    const [wishEvent, setWishEvent] = useState()
+    const [wishEvent, setWishEvent] = useState();
+
+    const [title, setTitle] = useState(wish.title);
+    const [link, setLink] = useState(wish.url);
+    const [price, setPrice] = useState(wish.price);
+    const [category, setCategory] = useState("");
+    const [event, setEvent] = useState("");
+    const [picture, setPicture] = useState(wish.picture);
+    const [favorit, setFavorit] = useState(wish.isFavorit);
+
+    const validate = () => {
+        const newErrors = {};
+        if (!title) newErrors.title = "Titel ist erforderlich";
+        if (!price) newErrors.price = "Preis ist erforderlich";
+        if (isNaN(parseFloat(price))) newErrors.price = "Preis muss eine Zahl sein";
+        if (!category) newErrors.category = "Kategorie ist erforderlich";
+        if (!link) newErrors.link = "Link ist erforderlich";
+        return newErrors;
+    }
+
+    useEffect(() => {
+        if (wishCategory) setCategory(wishCategory.find((c) => c.cid == wish.fk_cid)?.cname);
+        if (wishEvent) setEvent(wishEvent.find((e) => e.eid == wish.fk_eid)?.ename);
+    }, [wishCategory, wishEvent]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,10 +56,30 @@ const EditWish = ({ onClose }) => {
         fetchData()
     }, [])
 
-    const handleSubmit = async () => {
+    const handleDelete = async (id) => {
         try {
-            const response = await fetch("http://localhost:8000/wishes", {
-                method: "POST",
+            const response = await fetch(`http://localhost:8000/wishes/${id}`, {
+                method: "DELETE"
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            onSuccess()
+            onClose()
+        } catch (error) {
+            console.error("Error deleting wish:", error);
+        }
+    }
+
+    const handleSubmit = async (id) => {
+        const newErrors = validate();
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:8000/wishes/${id}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -60,6 +97,7 @@ const EditWish = ({ onClose }) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            onSuccess()
             onClose()
         } catch (error) {
             console.error("Error posting wish:", error);
@@ -71,21 +109,21 @@ const EditWish = ({ onClose }) => {
             <Title c="#5682B4" fz={35} mb={30} mt={-30}>
                 Wunsch bearbeiten oder löschen
             </Title>
-            <InputRow title="Titel" placeholder="" inputType="text" value={title} onChange={setTitle}/>
-            <InputRow title="Link" placeholder="" inputType="text" value={link} onChange={setLink}/>
-            <InputRow title="Preis" placeholder="" inputType="text" value={price} onChange={setPrice}/>
-            <InputRow title="Kategorie" placeholder="" inputType="select" selectData={categoryData} value={category} onChange={setCategory}/>
-            <InputRow title="Event" placeholder="" inputType="select" selectData={eventData} value={event} onChange={setEvent}/>
-            <InputRow title="Bild" placeholder="" inputType="text" value={picture} onChange={setPicture}/>
-            <InputRow title="Favorit" placeholder="" inputType="check" value={favorit} onChange={setFavorit}/>
+            <InputRow title="Titel" inputType="text" value={title} onChange={setTitle} error={errors.title}/>
+            <InputRow title="Link" inputType="text" value={link} onChange={setLink} error={errors.link}/>
+            <InputRow title="Preis" inputType="text" value={price} onChange={setPrice} error={errors.price}/>
+            <InputRow title="Kategorie" inputType="select" selectData={categoryData} value={category} onChange={setCategory} error={errors.category}/>
+            <InputRow title="Event" inputType="select" selectData={eventData} value={event} onChange={setEvent}/>
+            <InputRow title="Bild" inputType="text" value={picture} onChange={setPicture}/>
+            <InputRow title="Favorit" inputType="check" value={favorit} onChange={setFavorit}/>
             <Flex w="100%" justify="space-between" mt={10} mb={-30}>
                 <Button w="49%" h={45} bg="#F5F4D7" c="#5682B4" fz="18px"
-                        leftSection={<DeleteIcon />} onClick={handleSubmit}
+                        leftSection={<DeleteIcon />} onClick={() => handleDelete(wish.id)}
                 >
                     Wunsch löschen
                 </Button>
                 <Button w="49%" h={45} bg="#5682B4" c="#D5EAF5" fz="18px"
-                        leftSection={<EditIcon />} onClick={handleSubmit}
+                        leftSection={<EditIcon />} onClick={() => handleSubmit(wish.id)}
                 >
                     Wunsch bearbeiten
                 </Button>

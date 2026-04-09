@@ -1,14 +1,14 @@
-import { Flex, Input, Text, Select, Checkbox } from "@mantine/core";
+import { Flex, Text, Select, Checkbox, TextInput } from "@mantine/core";
 import CreateIcon from '@mui/icons-material/Create';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const InputRow = ({title, placeholder, inputType, selectData, value, onChange}) => {
+const InputRow = ({title, inputType, selectData, value, onChange, error}) => {
 
     return (  
         <Flex w="100%" my={10} align="center" justify="space-between">
             <Text c="#5682B4" fz={25}>{title}:</Text>
             {inputType == "text" && 
-                <Input w="50%" placeholder={placeholder == "" ? "eingeben..." : placeholder} 
+                <TextInput w="50%" placeholder="eingeben..."
                     rightSection={<CreateIcon style={{ color: '#5682B4' }}/>} 
                     value={value} onChange={(e) => onChange(e.target.value)}
                     styles={{
@@ -21,10 +21,11 @@ const InputRow = ({title, placeholder, inputType, selectData, value, onChange}) 
                             color: '#5682B4',
                         }
                     }}
+                    error={error}
                 />
             }
             {inputType == "select" && 
-                <Select w="50%" placeholder={placeholder == "" ? "wählen..." : placeholder} 
+                <Select w="50%" placeholder="wählen..."
                         comboboxProps={{ withinPortal: false }}
                         data={selectData}
                         rightSection={<ExpandMoreIcon style={{ color: '#5682B4' }}/>} 
@@ -45,6 +46,7 @@ const InputRow = ({title, placeholder, inputType, selectData, value, onChange}) 
                                 color: '#5682B4',
                             }
                         }}
+                        error={error}
                 />
             }
             {inputType == "check" &&
