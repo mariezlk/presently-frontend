@@ -1,10 +1,9 @@
 import { Flex, Text, Badge } from "@mantine/core";
 import { useState, useEffect } from "react";
 
-const EventFilter = ({wishes, addFilter, filterList}) => {
+const EventFilter = ({wishes, addFilter, filterList, user}) => {
 
     const [events, setEvents] = useState()
-    const uid = 1
     
     useEffect(() => {
         const fetchData = async () => {
@@ -39,7 +38,7 @@ const EventFilter = ({wishes, addFilter, filterList}) => {
                             <Badge fz={10} w={30} bg="#F5F4D7" c="#5682B4"
                                     styles={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                             >
-                                {wishes?.filter((w) => w.fk_uid == uid && w.fk_eid == event.eid).length}
+                                {wishes?.filter((w) => w.fk_uid == user && w.fk_eid == event.eid).length}
                             </Badge>
                         </Flex>
                     )}

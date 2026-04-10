@@ -3,7 +3,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { useState, useEffect } from "react";
 import EditWish from "../elements/dropdown/EditWish";
 
-const MyWishBox = ({wish, onSuccess, owner}) => {
+const MyWishBox = ({wish, onSuccess}) => {
 
     const [wishCategory, setWishCategory] = useState();
     const [wishEvent, setWishEvent] = useState()

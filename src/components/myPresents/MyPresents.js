@@ -39,7 +39,7 @@ const MyPresents = ({currentUser}) => {
                 {filterList.length > 0 && <FilterList filterList={filterList}/>}
                 <MyWishlist wishes={wishes} onSuccess={fetchData} currentUser={currentUser}/>
             </Box>
-            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} owner="true"/>
+            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} owner="true" user={currentUser}/>
         </Flex>
     );
 }

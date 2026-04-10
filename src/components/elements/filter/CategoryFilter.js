@@ -1,10 +1,9 @@
 import { Badge, Box, Flex, Grid, Text } from "@mantine/core";
 import { useState, useEffect } from "react";
 
-const CategoryFilter = ({wishes, addFilter, filterList}) => {
+const CategoryFilter = ({wishes, addFilter, filterList, user}) => {
 
     const [categorys, setCategorys] = useState();
-    const uid = 1;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,7 +36,7 @@ const CategoryFilter = ({wishes, addFilter, filterList}) => {
                             <Badge fz={10} w={30} bg="#F5F4D7" c="#5682B4"
                                    styles={{ display: "flex", alignItems: "center", justifyContent: "center" }}
                             >
-                                {wishes?.filter((w) => w.fk_uid == uid && w.fk_cid == category.cid).length}
+                                {wishes?.filter((w) => w.fk_uid == user && w.fk_cid == category.cid).length}
                             </Badge>
                         </Flex>
                     </Grid.Col>

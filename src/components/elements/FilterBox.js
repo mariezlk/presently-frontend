@@ -8,7 +8,7 @@ import PriceFilter from "./filter/PriceFilter";
 import TitleFilter from "./filter/TitleFilter";
 import FavoritFilter from "./filter/FavoritFilter";
 
-const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner}) => {
+const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) => {
 
     const [opened, setOpened] = useState()
 
@@ -51,9 +51,9 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner}) => {
 
     return (  
         <Box w="23vw" h="90vh" bg="#D5EAF5" px="30px" py="15px" style={{ position: "sticky", top: 0, alignSelf: "flex-start" }}>
-            <CategoryFilter wishes={wishes} addFilter={addFilter} filterList={filterList}/>
+            <CategoryFilter wishes={wishes} addFilter={addFilter} filterList={filterList} user={user}/>
             <Divider size={2} color="#5682B4"/>
-            <EventFilter wishes={wishes} addFilter={addFilter} filterList={filterList}/>
+            <EventFilter wishes={wishes} addFilter={addFilter} filterList={filterList} user={user}/>
             <Divider size={2} color="#5682B4"/>
             <FavoritFilter addFilter={addFilter}/>
             <Divider size={2} color="#5682B4"/>
