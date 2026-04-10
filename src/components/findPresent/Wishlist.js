@@ -1,13 +1,10 @@
 import { Grid } from "@mantine/core";
 import WishBox from "./WishBox";
 
-const MyWishlist = ({wishes, onSuccess}) => {
-
-    const user = 1
-
+const Wishlist = ({wishes, onSuccess}) => {
     return (  
         <Grid mt={10}>
-            {wishes?.filter((wish) => wish.fk_uid == user).map((wish) => (
+            {wishes?.map((wish) => (
                 <Grid.Col span={3}>
                     <WishBox wish={wish} onSuccess={onSuccess}/>
                 </Grid.Col>      
@@ -16,4 +13,4 @@ const MyWishlist = ({wishes, onSuccess}) => {
     );
 }
  
-export default MyWishlist;
+export default Wishlist;

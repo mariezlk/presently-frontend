@@ -1,11 +1,11 @@
 import { Box, Flex, Text } from "@mantine/core";
-import MyWishlist from "./elements/MyWishlist";
-import SortDropDown from "./elements/SortDropDown";
-import FilterBox from "./elements/FilterBox";
+import MyWishlist from "./MyWishlist";
+import SortDropDown from "../elements/SortDropDown";
+import FilterBox from "../elements/FilterBox";
 import { useState, useEffect } from "react";
-import FilterList from "./elements/FilterList";
+import FilterList from "../elements/FilterList";
 
-const MyPresents = () => {
+const MyPresents = ({currentUser}) => {
 
     const [wishes, setWishes] = useState();
     const [filterList, setFilterList] = useState([]);
@@ -37,9 +37,9 @@ const MyPresents = () => {
                     <SortDropDown />   
                 </Flex>
                 {filterList.length > 0 && <FilterList filterList={filterList}/>}
-                <MyWishlist wishes={wishes} onSuccess={fetchData}/>
+                <MyWishlist wishes={wishes} onSuccess={fetchData} currentUser={currentUser}/>
             </Box>
-            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList}/>
+            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} owner="true"/>
         </Flex>
     );
 }

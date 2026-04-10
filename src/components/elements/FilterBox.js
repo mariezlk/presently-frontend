@@ -8,7 +8,7 @@ import PriceFilter from "./filter/PriceFilter";
 import TitleFilter from "./filter/TitleFilter";
 import FavoritFilter from "./filter/FavoritFilter";
 
-const FilterBox = ({wishes, onSuccess, filterList, setFilterList}) => {
+const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner}) => {
 
     const [opened, setOpened] = useState()
 
@@ -61,17 +61,23 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList}) => {
             <Divider size={2} color="#5682B4"/>
             <TitleFilter addFilter={addFilter} />
             <Divider size={2} color="#5682B4"/>
-            <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
-                <Popover.Target>
-                    <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
-                        Wunsch hinzufügen
-                    </Button>
-                </Popover.Target>
-                <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-                                          border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
-                    <AddWish onClose={() => setOpened(false)} onSuccess={onSuccess}/>
-                </Popover.Dropdown>
-            </Popover>
+            {owner ? 
+                <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
+                    <Popover.Target>
+                        <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
+                            Wunsch hinzufügen
+                        </Button>
+                    </Popover.Target>
+                    <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+                                            border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
+                        <AddWish onClose={() => setOpened(false)} onSuccess={onSuccess}/>
+                    </Popover.Dropdown>
+                </Popover>
+            :
+                <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
+                    Zurück zur Benutzersuche
+                </Button>
+            }
         </Box>
     );
 }

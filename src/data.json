@@ -3,28 +3,28 @@
     {
       "uid": 1,
       "username": "maxmusti",
-      "e-mail": "max-mustermann@gmail.de",
+      "email": "max-mustermann@gmail.de",
       "password": "123456",
       "id": "xqfZBodU9Zw"
     },
     {
       "uid": 2,
       "username": "anjaaa",
-      "e-mail": "anja-anker@gmail.de",
+      "email": "anja-anker@gmail.de",
       "password": "123456",
       "id": "FcoslYVTh04"
     },
     {
       "uid": 3,
       "username": "erikerichson",
-      "e-mail": "erik-erichson@gmail.de",
+      "email": "erik-erichson@gmail.de",
       "password": "123456",
       "id": "temJrRFXgrM"
     },
     {
       "uid": 4,
       "username": "fishi",
-      "e-mail": "lisa-fisch@gmail.de",
+      "email": "lisa-fisch@gmail.de",
       "password": "123456",
       "id": "lBAOSTvP4rg"
     }
@@ -161,7 +161,6 @@
       "id": "leamvw2agYo"
     },
     {
-      "wid": 7,
       "fk_uid": 1,
       "fk_cid": 4,
       "fk_eid": 4,
@@ -170,7 +169,7 @@
       "isFavorit": false,
       "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
       "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
-      "id": "CUBhEZBOF4Y"
+      "id": "s93U8F2Cfcw"
     },
     {
       "wid": 6,

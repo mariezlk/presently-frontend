@@ -49,3 +49,7 @@ body{
 .mantine-Select-option:hover {
   background-color: #F5F4D7;
 }
+
+.searchResultBtn:hover {
+  background-color: #F5F4D7 !important;
+}

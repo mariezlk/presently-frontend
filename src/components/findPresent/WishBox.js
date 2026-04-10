@@ -1,7 +1,7 @@
 import { Flex, Image, Text, Button, Popover, Box, Badge } from "@mantine/core";
 import StarIcon from '@mui/icons-material/Star';
 import { useState, useEffect } from "react";
-import EditWish from "./dropdown/EditWish";
+import MarkAsBought from "../elements/dropdown/MarkAsBought";
 
 const WishBox = ({wish, onSuccess}) => {
 
@@ -56,7 +56,7 @@ const WishBox = ({wish, onSuccess}) => {
             </Popover.Target>
             <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
                                         border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
-                <EditWish wish={wish} onClose={() => setOpened(false)} onSuccess={onSuccess}/>
+                <MarkAsBought />
             </Popover.Dropdown>
         </Popover>
     );
