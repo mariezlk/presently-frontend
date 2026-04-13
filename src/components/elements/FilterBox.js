@@ -1,14 +1,18 @@
 import { Box, Button, Divider, Popover } from "@mantine/core";
 import AddIcon from '@mui/icons-material/Add';
 import AddWish from "./dropdown/AddWish";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState, useEffect } from "react";
 import CategoryFilter from "./filter/CategoryFilter";
 import EventFilter from "./filter/EventFilter";
 import PriceFilter from "./filter/PriceFilter";
 import TitleFilter from "./filter/TitleFilter";
 import FavoritFilter from "./filter/FavoritFilter";
+import { useNavigate } from "react-router-dom";
 
 const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) => {
+
+    const navigate = useNavigate();
 
     const [opened, setOpened] = useState()
 
@@ -74,7 +78,9 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) 
                     </Popover.Dropdown>
                 </Popover>
             :
-                <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
+                <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<ArrowBackIcon sx={{alignItems: "center", fontSize: 35 }} />}
+                        styles={{ label: { whiteSpace: 'normal' } }} onClick={() => navigate(`/geschenkeFinden`)}
+                >
                     Zurück zur Benutzersuche
                 </Button>
             }

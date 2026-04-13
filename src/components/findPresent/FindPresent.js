@@ -37,9 +37,9 @@ const FindPresent = ({searchedUser}) => {
                     <SortDropDown />   
                 </Flex>
                 {filterList.length > 0 && <FilterList filterList={filterList}/>}
-                <Wishlist wishes={wishes} onSuccess={fetchData}/>
+                <Wishlist wishes={wishes} onSuccess={fetchData} searchedUser={searchedUser}/>
             </Box>
-            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} user={searchedUser.uid}/>
+            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} user={searchedUser?.uid}/>
         </Flex>
     );
 }

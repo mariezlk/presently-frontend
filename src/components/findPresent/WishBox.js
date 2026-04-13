@@ -2,8 +2,9 @@ import { Flex, Image, Text, Button, Popover, Box, Badge } from "@mantine/core";
 import StarIcon from '@mui/icons-material/Star';
 import { useState, useEffect } from "react";
 import MarkAsBought from "../elements/dropdown/MarkAsBought";
+import SellIcon from '@mui/icons-material/Sell';
 
-const WishBox = ({wish, onSuccess}) => {
+const WishBox = ({wish, onSuccess, searchedUser}) => {
 
     const [wishCategory, setWishCategory] = useState();
     const [wishEvent, setWishEvent] = useState()
@@ -30,35 +31,59 @@ const WishBox = ({wish, onSuccess}) => {
     }, [])
 
     return (  
-        <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
-            <Popover.Target>
-                <Flex onClick={() => setOpened(true)} direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px", cursor: "pointer"}}>
-                    <Box style={{ position: "relative" }}>
-                        <Image w="100%" h="10vw" src={wish.picture} style={{ borderRadius: "15px" }} />
-                        {wish.fk_eid &&
-                            <Badge ta="center"
-                                style={{ position: "absolute", top: 4, right: 4, display: "flex", alignItems: "center", justifyContent: "center"}}
+        <Flex direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px", cursor: wish.bought ? "default" : "pointer", position: "relative"}}>
+            {wish.bought && (
+                <Flex direction="column" pb={140} style={{
+                    position: "absolute",
+                    top: 0, left: 0,
+                    width: "100%", height: "100%",
+                    backgroundColor: "rgba(152, 152, 152, 0.75)",
+                    borderRadius: "15px",
+                    zIndex: 5,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                }}>
+                    <Text fw={600} fz={25} c="#F5F4D7">Bereits</Text>
+                    <Text fw={600} fz={25} c="#F5F4D7">Gekauft</Text>
+                </Flex>
+            )}
+            <Box style={{ position: "relative" }}>
+                <Image onClick={() => window.open(wish.url, '_blank')} w="100%" h="10vw" src={wish.picture} style={{ borderRadius: "15px" }} />
+                {!wish.bought &&
+                    <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
+                        <Popover.Target>
+                            <Button onClick={() => setOpened(true)} ta="center" radius={20} w={20}
+                                style={{ position: "absolute", top: 4, left: 4, display: "flex", alignItems: "center", justifyContent: "center"}}
                                 bg="#D5EAF5" c="#5682B4"
                             >
-                                {wishEvent?.find((e) => e.eid == wish.fk_eid)?.ename}
-                            </Badge>
-                        }
-                    </Box>
-                    <Text ml={5} size="sm" c="#5682B4">{wishCategory?.find((category) => category.cid == wish.fk_cid).cname}</Text>
-                    <Flex c="#5682B4" align="center" justify="center" h="10vh">
-                        <Text fw={700} ta="center" w="12vw" size="xl">{wish.title}</Text>
-                    </Flex>
-                    <Flex c="#5682B4" align="end" justify="space-between" h="10vh" px={10} mb={10}>
-                        <Text align="center">{wish.isFavorit ? <StarIcon sx={{ fontSize: 30 }} /> : ""}</Text>
-                        <Button component="a" href={wish.url} target="_blank" c="#D5EAF5"  fz={18} radius={20} w="7.5vw" ta="center" bg="#5682B4">{formatPrice(wish.price)} €</Button>
-                    </Flex>
-                </Flex>
-            </Popover.Target>
-            <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-                                        border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
-                <MarkAsBought />
-            </Popover.Dropdown>
-        </Popover>
+                                <SellIcon style={{ transform: 'rotate(90deg)' }}/>
+                            </Button>
+                        </Popover.Target>
+                        <Popover.Dropdown style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+                                                    border: "7px solid #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
+                            <MarkAsBought wish={wish} searchedUser={searchedUser} onClose={() => setOpened(false)} onSuccess={onSuccess}/>
+                        </Popover.Dropdown>
+                    </Popover>
+                }
+                {wish.fk_eid &&
+                    <Badge ta="center"
+                        style={{ position: "absolute", top: 4, right: 4, display: "flex", alignItems: "center", justifyContent: "center"}}
+                        bg="#D5EAF5" c="#5682B4"
+                    >
+                        {wishEvent?.find((e) => e.eid == wish.fk_eid)?.ename}
+                    </Badge>
+                }
+            </Box>
+            <Text onClick={() => window.open(wish.url, '_blank')} ml={5} size="sm" c="#5682B4">{wishCategory?.find((category) => category.cid == wish.fk_cid).cname}</Text>
+            <Flex onClick={() => window.open(wish.url, '_blank')} c="#5682B4" align="center" justify="center" h="10vh">
+                <Text fw={700} ta="center" w="12vw" size="xl">{wish.title}</Text>
+            </Flex>
+            <Flex onClick={() => window.open(wish.url, '_blank')} c="#5682B4" align="end" justify="space-between" h="10vh" px={10} mb={10}>
+                <Text align="center">{wish.isFavorit ? <StarIcon sx={{ fontSize: 30 }} /> : ""}</Text>
+                <Button component="a" href={wish.url} target="_blank" c="#D5EAF5"  fz={18} radius={20} w="7.5vw" ta="center" bg="#5682B4">{formatPrice(wish.price)} €</Button>
+            </Flex>
+        </Flex>
     );
 }
  

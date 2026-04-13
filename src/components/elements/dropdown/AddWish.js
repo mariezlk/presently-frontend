@@ -69,6 +69,7 @@ const AddWish = ({ onClose, onSuccess }) => {
                     title: title,
                     price: parseFloat(price),
                     isFavorit: favorit,
+                    bought: false,
                     picture: picture,
                     url: link
                 })

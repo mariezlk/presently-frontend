@@ -90,6 +90,7 @@ const EditWish = ({ wish, onClose, onSuccess }) => {
                     title: title,
                     price: parseFloat(price),
                     isFavorit: favorit,
+                    bought: wish.bought,
                     picture: picture,
                     url: link
                 })
