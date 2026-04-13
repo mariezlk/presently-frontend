@@ -8,8 +8,8 @@ const Navbar = () => {
     const location = useLocation();
 
     return ( 
-        <Flex h="10vh" bg="#5682B4" align="center" justify="space-between">
-            <Flex>
+        <Flex h="10vh" bg="#5682B4" align="center" justify="space-between" style={{ position: "sticky", top: 0, zIndex: 100, alignSelf: "flex-start" }}>
+            <Flex> 
                 <Button h={45} w={175} radius={30} mx={30} 
                         c={location.pathname.includes("/meineWuensche") ? "#5682B4" : "#D5EAF5"}
                         bg={location.pathname.includes("/meineWuensche") ? "#D5EAF5" : "#5682B4"}

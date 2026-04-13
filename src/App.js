@@ -33,7 +33,7 @@ function App() {
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/meineWuensche" element={<MyPresents currentUser={currentUser} />}/>
-        <Route path="/geschenkeFinden" element={<FindUser searchedUser={searchedUser} setSearchedUser={setSearchedUser}/>}/>
+        <Route path="/geschenkeFinden" element={<FindUser currentUser={currentUser} searchedUser={searchedUser} setSearchedUser={setSearchedUser}/>}/>
         <Route path="/geschenkeFinden/:userId" element={<FindPresent searchedUser={searchedUser}/>}/>
         <Route path="/help" element={<Help />}/>
       </Routes>

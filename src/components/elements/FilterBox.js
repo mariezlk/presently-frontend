@@ -54,7 +54,7 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) 
     }
 
     return (  
-        <Box w="23vw" h="90vh" bg="#D5EAF5" px="30px" py="15px" style={{ position: "sticky", top: 0, alignSelf: "flex-start" }}>
+        <Box w="23vw" h="90vh" bg="#D5EAF5" px="30px" py="15px" style={{ position: "sticky", top: "10vh", alignSelf: "flex-start" }}>
             <CategoryFilter wishes={wishes} addFilter={addFilter} filterList={filterList} user={user}/>
             <Divider size={2} color="#5682B4"/>
             <EventFilter wishes={wishes} addFilter={addFilter} filterList={filterList} user={user}/>
@@ -68,7 +68,7 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) 
             {owner ? 
                 <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
                     <Popover.Target>
-                        <Button h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
+                        <Button onClick={() => setOpened(true)} h="10%" fz={20} mt={15} w="100%" bg="#F5F4D7" c="#5682B4" radius={15} leftSection={<AddIcon sx={{alignItems: "center", fontSize: 35 }} />}>
                             Wunsch hinzufügen
                         </Button>
                     </Popover.Target>

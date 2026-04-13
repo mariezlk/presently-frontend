@@ -3,13 +3,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect } from "react";
 
 
-const FindUser = ({searchedUser, setSearchedUser}) => {
+const FindUser = ({currentUser, searchedUser, setSearchedUser}) => {
 
     const [search, setSearch] = useState("");
     const [userList, setUserList] = useState();
 
     const filtered = userList?.filter(user =>
-        user.username.toLowerCase().includes(search.toLowerCase()) || user.email.toLowerCase().includes(search.toLowerCase())
+        (user.username.toLowerCase().includes(search.toLowerCase()) || user.email.toLowerCase().includes(search.toLowerCase())) && user.uid != currentUser
     );
 
     useEffect(() => {
@@ -31,9 +31,7 @@ const FindUser = ({searchedUser, setSearchedUser}) => {
     return (  
         <Flex h="90vh" w="100%" justify="center" align="center" direction="column">
             <Text ta="center" mb={50} c="#5682B4" fz="50px" w="30vw" style={{lineHeight: "60px"}}>
-                Suche nach
-                demjenigen, den du
-                beschenken willst:
+                Wen möchtest du beschenken?
             </Text> 
             <TextInput  placeholder="Suche..." name="usersearch" w="45vw" size="xl"
                         rightSection={<SearchIcon style={{ color: '#5682B4' }}/>} style={{cursor:"pointer"}}
