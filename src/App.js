@@ -9,26 +9,30 @@ import Login from './components/login+register/Login';
 import Register from './components/login+register/Register';
 import Help from './components/help/Help';
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 function App() {
 
   const navigate = useNavigate();
+  const location = useLocation();
+
 
   const [currentUser, setCurrentUser] = useState(1)
   const [searchedUser, setSearchedUser] = useState()
 
   useEffect(() => {
-    if(searchedUser != undefined){
-      navigate(`/geschenkeFinden/${searchedUser?.id}`)
-      return
-    }
-    navigate(`/geschenkeFinden`)
+      if (!location.pathname.startsWith('/geschenkeFinden')) return;
+      
+      if (searchedUser != undefined) {
+          navigate(`/geschenkeFinden/${searchedUser?.id}`)
+          return;
+      }
+      navigate('/geschenkeFinden')
   }, [searchedUser])
 
   return (
     <Box>
-      <Navbar/>
+      {(!location.pathname.startsWith('/login') && !location.pathname.startsWith('/register')) && <Navbar/>}
       <Routes>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>

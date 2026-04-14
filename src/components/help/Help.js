@@ -39,13 +39,13 @@ const Help = () => {
                         3. Füge deine Wüsche zu deiner Liste hinzu, um deinen Freunden das Finden eines Geschenks für dich zu vereinfachen.
                     </Text>
                     <Text w="90%" c="#5682B4" fz={18} mb={40}>
-                        4. Über den Reiter "Geschenk finden" kann st du nach deinen Freunden suchen und über ihre Wunschliste das ideale Geschenk finden.
+                        4. Über den Reiter "Geschenk finden" kannst du nach deinen Freunden suchen und über ihre Wunschliste das ideale Geschenk finden.
                     </Text>
                     <Text w="90%" c="#5682B4" fz={18} mb={40}>
-                        5. Durch Clicken auf den jeweiligen Wunsch wirst du direkt auf einen Onlineshop weitergeleitet, der das Produkt vertreibt, insofern ein solcher Link hinterlegt ist.
+                        5. Durch Clicken auf den jeweiligen Wunsch wirst du direkt auf einen Onlineshop weitergeleitet, der das Produkt vertreibt.
                     </Text>
                     <Text w="90%" c="#5682B4" fz={18} mb={40}>
-                        6. Bitte vergiss nicht den Wunsch als gekauft zu markieren, wenn du entscheiden hast den Wunsch zu verschenken, um Missverständnisse zu vermeiden.
+                        6. Bitte vergiss nicht den Wunsch als gekauft zu markieren, wenn du dich dazu entscheiden hast den Wunsch zu verschenken, um Missverständnisse zu vermeiden.
                     </Text>
                 </Flex>
             </Flex>       

@@ -164,18 +164,6 @@
       "id": "leamvw2agYo"
     },
     {
-      "fk_uid": 1,
-      "fk_cid": 4,
-      "fk_eid": 4,
-      "title": "Kinder Happy Hippo",
-      "price": 2.39,
-      "isFavorit": false,
-      "bought": false,
-      "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
-      "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
-      "id": "s93U8F2Cfcw"
-    },
-    {
       "fk_uid": 2,
       "fk_cid": 7,
       "fk_eid": 1,

@@ -1,5 +1,6 @@
-import { Flex, Button, Text } from "@mantine/core";
+import { Flex, Button, Text, Divider } from "@mantine/core";
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -31,18 +32,26 @@ const Navbar = () => {
                 </Text>
                 <Flex direction="column" align="center" ml={10}>
                     <Text size="20px" c="#F5F4D7">
-                        schenken was 
+                        Schenken, was
                     </Text>
                     <Text size="20px" c="#F5F4D7">
-                        gewünscht wird
+                         gewünscht wird
                     </Text>
                 </Flex>
             </Flex>
-            <Button variant="transparent" c="#D5EAF5" mr={10}  
-                    onClick={() => navigate(`/help`)}
-            >
-                <QuestionMarkIcon sx={{ fontSize: 40 }} />
-            </Button>
+            <Flex>
+                <Button variant="transparent" c="#D5EAF5" mx={5}  
+                        onClick={() => navigate(`/help`)}
+                >
+                    <QuestionMarkIcon sx={{ fontSize: 35 }} />
+                </Button>
+                <Divider size={2} color="#D5EAF5" orientation="vertical" />
+                <Button variant="transparent" c="#D5EAF5" mx={5}  
+                        onClick={() => navigate(`/help`)}
+                >
+                    <PermIdentityIcon sx={{ fontSize: 40 }} />
+                </Button>
+            </Flex>
         </Flex>
     );
 }
