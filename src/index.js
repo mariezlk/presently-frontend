@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { UserProvider } from './UserContext';
 import '@mantine/core/styles.css';
 import App from './App';
 
@@ -10,7 +11,9 @@ root.render(
   <React.StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <Router>
-        <App />
+        <UserProvider>
+          <App />
+        </UserProvider>
       </Router>
     </MantineProvider>
   </React.StrictMode>

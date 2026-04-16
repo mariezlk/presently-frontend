@@ -1,32 +1,34 @@
 {
   "users": [
     {
-      "uid": 1,
       "username": "maxmusti",
       "email": "max-mustermann@gmail.de",
       "password": "123456",
       "id": "xqfZBodU9Zw"
     },
     {
-      "uid": 2,
       "username": "anjaaa",
       "email": "anja-anker@gmail.de",
       "password": "123456",
       "id": "FcoslYVTh04"
     },
     {
-      "uid": 3,
       "username": "erikerichson",
       "email": "erik-erichson@gmail.de",
       "password": "123456",
       "id": "temJrRFXgrM"
     },
     {
-      "uid": 4,
       "username": "fishi",
       "email": "lisa-fisch@gmail.de",
       "password": "123456",
       "id": "lBAOSTvP4rg"
+    },
+    {
+      "username": "mariechen",
+      "email": "marie@web.de",
+      "password": "12345678",
+      "id": "qvafme6dsU0"
     }
   ],
   "events": [
@@ -95,7 +97,7 @@
   ],
   "wishes": [
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 3,
       "title": "Skin-Care Artikel",
       "price": 25,
@@ -106,7 +108,7 @@
       "id": "kRJV1NPqfcA"
     },
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 2,
       "fk_eid": null,
       "title": "Tommy Hilfiger Gürtel",
@@ -118,7 +120,7 @@
       "id": "5TCRjjDJ2W0"
     },
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 2,
       "title": "Nike Performance Short",
       "price": 39.99,
@@ -129,7 +131,7 @@
       "id": "KC-2AjNLMhI"
     },
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 2,
       "fk_eid": 1,
       "title": "Nike Dunks Oil Green",
@@ -141,7 +143,7 @@
       "id": "IKgjM9hrBmo"
     },
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 1,
       "title": "Ritzenhoff Weingläser",
       "price": 18.99,
@@ -152,19 +154,19 @@
       "id": "uqOw0qk81EM"
     },
     {
-      "fk_uid": 1,
+      "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 7,
       "fk_eid": 1,
       "title": "Apple Watch Serie 10",
       "price": 359,
       "isFavorit": false,
-      "bought": false,
+      "bought": true,
       "picture": "https://tse3.mm.bing.net/th/id/OIP.peQW4ihTrPblsbPYR-wK5gHaEK?pid=Api",
       "url": "https://www.apple.com/es/apple-watch-series-11/",
       "id": "leamvw2agYo"
     },
     {
-      "fk_uid": 2,
+      "fk_uid": "FcoslYVTh04",
       "fk_cid": 7,
       "fk_eid": 1,
       "title": "Apple Watch Serie 11",
@@ -176,7 +178,7 @@
       "id": "l95oeAbneRI"
     },
     {
-      "fk_uid": 2,
+      "fk_uid": "FcoslYVTh04",
       "fk_cid": 4,
       "fk_eid": 4,
       "title": "Kinder Happy Hippo",
@@ -186,6 +188,18 @@
       "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
       "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
       "id": "s93U8F2Cfcw"
+    },
+    {
+      "fk_uid": "qvafme6dsU0",
+      "fk_cid": 2,
+      "fk_eid": null,
+      "title": "Nike Jacke",
+      "price": 119.99,
+      "isFavorit": true,
+      "bought": false,
+      "picture": "https://amp.sportscheck.com/i/sportscheck/D1000010013614592?$productimage_square$&w=1500&fmt=auto",
+      "url": "https://www.sportscheck.com/nike/nike-nsw-club-steppjacke-herren-in-black-white-xl/568219007.html?WKZ=94&IWL=865&ns_mchannel=sea&ns_source=b_shopping&ns_campaign=687866667&ns_linkname=&WKZ=94&IWL=865&ns_mchannel=sea&ns_source=b_shopping&ns_campaign=687866667&ns_linkname=&msclkid=d5fe195d88e11da64b3c7082e4613d8f&utm_source=bing&utm_medium=cpc&utm_campaign=PMax&utm_term=2329384103815688&utm_content=Training",
+      "id": "Eml39T2CRr8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

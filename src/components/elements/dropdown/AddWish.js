@@ -2,11 +2,14 @@ import { Flex, Title, Button } from "@mantine/core";
 import InputRow from "./InputRow";
 import AddIcon from '@mui/icons-material/Add';
 import { useState, useEffect } from "react";
+import { useUser } from "../../../UserContext";
 
 const AddWish = ({ onClose, onSuccess }) => {
 
     const categoryData = ["Haushalt", "Kleidung", "Kosmetik", "Lebensmittel", "Spielzeug", "Sport", "Technik", "Sonstiges"]
     const eventData = ["Geburtstag", "Hochzeit", "Weihnachten", "Ostern", "Abschluss"]
+
+    const { currentUser } = useUser();
 
     const [errors, setErrors] = useState({});
 
@@ -63,11 +66,11 @@ const AddWish = ({ onClose, onSuccess }) => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    fk_uid: 1, //anpassen bei backend implement
+                    fk_uid: currentUser,
                     fk_cid: wishCategory?.find((c) => c.cname == category).cid,
                     fk_eid: wishEvent?.find((e) => e.ename == event)?.eid ?? null,      
                     title: title,
-                    price: parseFloat(price),
+                    price: parseFloat(price.toString().replace(',', '.')),
                     isFavorit: favorit,
                     bought: false,
                     picture: picture,

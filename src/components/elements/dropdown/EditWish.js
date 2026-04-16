@@ -3,11 +3,14 @@ import InputRow from "./InputRow";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState, useEffect } from "react";
+import { useUser } from "../../../UserContext";
 
 const EditWish = ({ wish, onClose, onSuccess }) => {
 
     const categoryData = ["Haushalt", "Kleidung", "Kosmetik", "Lebensmittel", "Spielzeug", "Sport", "Technik", "Sonstiges"]
     const eventData = ["Geburtstag", "Hochzeit", "Weihnachten", "Ostern", "Abschluss"]
+
+    const { currentUser } = useUser();
 
     const [errors, setErrors] = useState({});
 
@@ -84,11 +87,11 @@ const EditWish = ({ wish, onClose, onSuccess }) => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    fk_uid: 1, //anpassen bei backend implement
+                    fk_uid: currentUser, 
                     fk_cid: wishCategory?.find((c) => c.cname == category).cid,
                     fk_eid: wishEvent?.find((e) => e.ename == event)?.eid ?? null,      
                     title: title,
-                    price: parseFloat(price),
+                    price: parseFloat(price.toString().replace(',', '.')),
                     isFavorit: favorit,
                     bought: wish.bought,
                     picture: picture,

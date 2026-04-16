@@ -10,15 +10,22 @@ import Register from './components/login+register/Register';
 import Help from './components/help/Help';
 import { useEffect, useState } from 'react';
 import { useNavigate} from "react-router-dom";
+import { useUser } from "./UserContext";
 
 function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
 
+  const { currentUser } = useUser();
 
-  const [currentUser, setCurrentUser] = useState(1)
   const [searchedUser, setSearchedUser] = useState()
+
+  useEffect(() => {
+    if(currentUser == null){
+      navigate('/login')
+    }
+  }, [currentUser])
 
   useEffect(() => {
       if (!location.pathname.startsWith('/geschenkeFinden')) return;
@@ -36,8 +43,8 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/meineWuensche" element={<MyPresents currentUser={currentUser} />}/>
-        <Route path="/geschenkeFinden" element={<FindUser currentUser={currentUser} searchedUser={searchedUser} setSearchedUser={setSearchedUser}/>}/>
+        <Route path="/meineWuensche" element={<MyPresents />}/>
+        <Route path="/geschenkeFinden" element={<FindUser setSearchedUser={setSearchedUser}/>}/>
         <Route path="/geschenkeFinden/:userId" element={<FindPresent searchedUser={searchedUser}/>}/>
         <Route path="/help" element={<Help />}/>
       </Routes>

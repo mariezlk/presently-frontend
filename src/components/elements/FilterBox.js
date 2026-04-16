@@ -21,6 +21,7 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) 
     const [maxPrice, setMaxPrice] = useState(500);
 
     useEffect(() => {
+        console.log(wishes)
         if (wishes && wishes.length > 0) {
             const min = Math.min(...wishes.map((wish) => wish.price));
             const max = Math.max(...wishes.map((wish) => wish.price));
@@ -36,8 +37,6 @@ const FilterBox = ({wishes, onSuccess, filterList, setFilterList, owner, user}) 
                 setFilterList(filterList.filter((el) => !(el.filterName == name)))
                 return
             }
-            console.log(value)
-            console.log(`${Math.floor(minPrice)}€ - ${Math.floor(maxPrice)}€`)
             if(value == `${Math.floor(minPrice)}€ - ${Math.floor(maxPrice)}€`){
                 setFilterList(filterList.filter((el) => !(el.filterName == name)))
                 return

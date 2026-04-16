@@ -4,8 +4,11 @@ import SortDropDown from "../elements/SortDropDown";
 import FilterBox from "../elements/FilterBox";
 import { useState, useEffect } from "react";
 import FilterList from "../elements/FilterList";
+import { useUser } from "../../UserContext";
 
-const MyPresents = ({currentUser}) => {
+const MyPresents = () => {
+
+    const { currentUser } = useUser();
 
     const [wishes, setWishes] = useState();
     const [filterList, setFilterList] = useState([]);
@@ -37,7 +40,7 @@ const MyPresents = ({currentUser}) => {
                     <SortDropDown />   
                 </Flex>
                 {filterList.length > 0 && <FilterList filterList={filterList}/>}
-                <MyWishlist wishes={wishes} onSuccess={fetchData} currentUser={currentUser}/>
+                <MyWishlist wishes={wishes} onSuccess={fetchData}/>
             </Box>
             <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} owner="true" user={currentUser}/>
         </Flex>

@@ -1,10 +1,56 @@
-import { Flex, Title, Text, TextInput, Button, Anchor } from "@mantine/core";
+import { Flex, Title, Text, TextInput, Button, Anchor, PasswordInput } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import LoginIcon from '@mui/icons-material/Login';
+import { useState, useEffect } from "react";
+import { useForm } from '@mantine/form';
+import { useUser } from "../../UserContext";
 
 const Login = () => {
 
     const navigate = useNavigate()
+
+    const { setCurrentUser } = useUser();
+
+    const [noUser, setNoUser] = useState(false);
+    const [userData, setUserData] = useState();
+
+    const form = useForm({
+        initialValues: {
+            email: "",
+            password: "",
+        },
+        validate: {
+            email: (value) => value.trim().length === 0 ? 'E-Mail ist erforderlich' : null,
+            password: (value) => value.trim().length === 0 ? 'Passwort ist erforderlich' : null,
+        }
+    })
+
+    //erhält Liste mit UserDaten aus der data.json
+    useEffect(() => {
+        fetch('http://localhost:8000/users') 
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok')
+            }
+            return response.json()
+        })
+        .then(data => setUserData(data))
+        .catch(error => console.error('Error fetching data:', error))
+    }, [])
+
+    //Funktionalität, die bei Versuch des einloggens ausgeführt wird
+    function loginFunction (values) {
+        const foundUser = userData.find((user) => user.email === values.email && user.password === values.password)
+
+        if (foundUser) {
+            setCurrentUser(foundUser.id)
+            navigate(`/meineWuensche`)    
+            setNoUser(false)
+        } 
+        else {
+            setNoUser(true)
+        }
+    }
 
     return (
         <Flex direction="column" h="100vh" w="100vw" justify="center" align="center" bg="#D5EAF5">
@@ -12,21 +58,34 @@ const Login = () => {
                 <Title fz={60} fw={500} c="#5682B4">Presently</Title>
                 <Title fz={40} fw={500} c="#5682B4">- Schenken, was gewünscht wird</Title>
             </Flex>
-            <Flex direction="column" bg="#F5F4D7" mt={20} w="35vw" justify="center" align="center" style={{border: "7px solid #5682B4",boxShadow: "5px 5px 20px #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}>
+            <Flex direction="column" bg="#F5F4D7" mt={20} w="35vw" justify="center" align="center" 
+                  style={{border: "7px solid #5682B4",boxShadow: "5px 5px 20px #5682B4", backgroundColor: "#FEFDE5", borderRadius: 12, padding: 20}}
+            >
                 <Title c="#5682B4" fz={40} fw={500} mt={10} mb={30}>
                     Login
                 </Title>
-                <Flex w="25vw" justify="space-between" my={20}>
-                    <Text fz={20} c="#5682B4">E-Mail:</Text>
-                    <TextInput />
-                </Flex>
-                <Flex w="25vw" justify="space-between" my={20}>
-                    <Text fz={20} c="#5682B4">Passwort:</Text>
-                    <TextInput />
-                </Flex>
-                <Button w="12vw" onClick={() => navigate('/meineWuensche')} bg="#5682B4" mb={20} mt={30} leftSection={<LoginIcon style={{marginRight: 30}}/>}>
-                    Login
-                </Button>
+                {noUser && 
+                    <Text w="25vw" c="#5682B4" ta="center" fz={17}>
+                        Keinen User mit diesen Daten gefunden! Versuchen Sie es erneut...
+                    </Text>
+                }
+                <form onSubmit={(form.onSubmit(loginFunction))}>
+                    <Flex w="25vw" justify="space-between" my={20}>
+                        <Text fz={20} c="#5682B4">E-Mail:</Text>
+                        <TextInput type="email" w="13vw" {...form.getInputProps("email")}/>
+                    </Flex>
+                    <Flex w="25vw" justify="space-between" my={20}>
+                        <Text fz={20} c="#5682B4">Passwort:</Text>
+                        <PasswordInput w="13vw" {...form.getInputProps("password")}/>
+                    </Flex>
+                    <Flex justify="center">
+                        <Button type="submit" w="12vw" bg="#5682B4" mb={20} mt={10} 
+                                leftSection={<LoginIcon style={{marginRight: 30}}/>}
+                        >
+                            Login
+                        </Button>
+                    </Flex>
+                </form>
                 <Anchor onClick={() => navigate("/register")} target="_blank" underline="hover" c="#5682B4" mb={20}>
                     Sie haben noch keinen Account?
                 </Anchor>

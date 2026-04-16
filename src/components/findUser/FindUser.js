@@ -1,15 +1,17 @@
 import { Button, Flex, Text, TextInput, Highlight } from "@mantine/core";
 import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect } from "react";
+import { useUser } from "../../UserContext";
 
-
-const FindUser = ({currentUser, searchedUser, setSearchedUser}) => {
+const FindUser = ({ setSearchedUser}) => {
 
     const [search, setSearch] = useState("");
     const [userList, setUserList] = useState();
 
+    const { currentUser } = useUser();
+
     const filtered = userList?.filter(user =>
-        (user.username.toLowerCase().includes(search.toLowerCase()) || user.email.toLowerCase().includes(search.toLowerCase())) && user.uid != currentUser
+        (user.username.toLowerCase().includes(search.toLowerCase()) || user.email.toLowerCase().includes(search.toLowerCase())) && user.id != currentUser
     );
 
     useEffect(() => {

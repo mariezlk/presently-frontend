@@ -17,7 +17,7 @@ const FindPresent = ({searchedUser}) => {
                 throw new Error('Network response was not ok')
             }
             const data = await response.json()
-            setWishes(data.filter((wish) => wish.fk_uid == searchedUser.uid))
+            setWishes(data.filter((wish) => wish.fk_uid == searchedUser.id))
         } catch (error) {
             console.error(`Error fetching url:`, error)
         }
@@ -39,7 +39,7 @@ const FindPresent = ({searchedUser}) => {
                 {filterList.length > 0 && <FilterList filterList={filterList}/>}
                 <Wishlist wishes={wishes} onSuccess={fetchData} searchedUser={searchedUser}/>
             </Box>
-            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} user={searchedUser?.uid}/>
+            <FilterBox wishes={wishes} onSuccess={fetchData} filterList={filterList} setFilterList={setFilterList} user={searchedUser?.id}/>
         </Flex>
     );
 }
