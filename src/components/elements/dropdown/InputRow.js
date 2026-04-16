@@ -1,4 +1,4 @@
-import { Flex, Text, Select, Checkbox, TextInput } from "@mantine/core";
+import { Flex, Text, Select, Checkbox, TextInput, PasswordInput } from "@mantine/core";
 import CreateIcon from '@mui/icons-material/Create';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -10,6 +10,22 @@ const InputRow = ({title, inputType, selectData, value, onChange, error}) => {
             {inputType == "text" && 
                 <TextInput w="50%" placeholder="eingeben..."
                     rightSection={<CreateIcon style={{ color: '#5682B4' }}/>} 
+                    value={value} onChange={(e) => onChange(e.target.value)}
+                    styles={{
+                        input: {
+                            backgroundColor: '#F5F4D7',
+                            borderColor: '#F5F4D7',
+                            color: "#5682B4"
+                        },
+                            placeholder: {
+                            color: '#5682B4',
+                        }
+                    }}
+                    error={error}
+                />
+            }
+            {inputType == "password" && 
+                <PasswordInput w="50%" placeholder="eingeben..."
                     value={value} onChange={(e) => onChange(e.target.value)}
                     styles={{
                         input: {

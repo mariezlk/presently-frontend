@@ -47,7 +47,7 @@ const Navbar = () => {
                 </Button>
                 <Divider size={2} color="#D5EAF5" orientation="vertical" />
                 <Button variant="transparent" c="#D5EAF5" mx={5}  
-                        onClick={() => navigate(`/help`)}
+                        onClick={() => navigate(`/accountDetails`)}
                 >
                     <PermIdentityIcon sx={{ fontSize: 40 }} />
                 </Button>

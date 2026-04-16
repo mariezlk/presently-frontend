@@ -11,6 +11,7 @@ import Help from './components/help/Help';
 import { useEffect, useState } from 'react';
 import { useNavigate} from "react-router-dom";
 import { useUser } from "./UserContext";
+import AccountDetails from './AccountDetails/AccountDetails';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/geschenkeFinden" element={<FindUser setSearchedUser={setSearchedUser}/>}/>
         <Route path="/geschenkeFinden/:userId" element={<FindPresent searchedUser={searchedUser}/>}/>
         <Route path="/help" element={<Help />}/>
+        <Route path="/accountDetails" element={<AccountDetails />}/>
       </Routes>
     </Box>
   );
