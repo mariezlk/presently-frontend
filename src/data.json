@@ -122,9 +122,10 @@
     {
       "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 2,
-      "title": "Nike Performance Short",
-      "price": 39.99,
-      "isFavorit": true,
+      "fk_eid": null,
+      "title": "Nike Performance ",
+      "price": 49,
+      "isFavorit": false,
       "bought": false,
       "picture": "https://img01.ztat.net/article/spp-media-p1/b160a473a401432aa1e5abde0b264350/c864371ac44847e1984fa806ce75a172.jpg?imwidth=762",
       "url": "https://www.zalando.fr/nike-performance-short-short-de-sport-blacksilver-n1241e1nz-q11.html",
@@ -145,10 +146,11 @@
     {
       "fk_uid": "xqfZBodU9Zw",
       "fk_cid": 1,
+      "fk_eid": null,
       "title": "Ritzenhoff Weingläser",
       "price": 18.99,
       "isFavorit": false,
-      "bought": false,
+      "bought": true,
       "picture": "https://media.xxxlutz.com/i/xxxlutz/PIlI6YDbs6AMnqjt12Zduu6g/?fmt=auto&%24hq%24=&w=1200",
       "url": "https://www.xxxlutz.de/p/ritzenhoff-spritzerglas-sommersonett-544-ml-2-teilig-004537027701?utm_term=004537027701&utm_content=null_70_product-listing-ad_7008_glaeser_soon&view=mplp&utm_source=bing-s&utm_medium=shopping&utm_campaign=null_sel_cluster-b_ssc_sal-do_on_sea-sho_ltz-de&msclkid=7489adc8b1431ff9d89ec406bbcfe8fc",
       "id": "uqOw0qk81EM"
@@ -184,7 +186,7 @@
       "title": "Kinder Happy Hippo",
       "price": 2.39,
       "isFavorit": false,
-      "bought": false,
+      "bought": true,
       "picture": "https://www.worldofsweets.de/out/pictures/generated/product/1/540_340_75/kinder-happy-hippo-kakao-5er-no1-2955.jpg",
       "url": "https://www.worldofsweets.de/kinder-Happy-Hippo-Kakao-5er.328390.html?ex_s=google&ex_m=paid&ex_c=20247573359&ex_t=&ex_co=&ex_a=&ex_gid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE&gad_source=5&gad_campaignid=20252430910&gclid=EAIaIQobChMIldnk98POkwMVM8l5BB1e0x2rEAQYAiABEgI0nvD_BwE",
       "id": "s93U8F2Cfcw"

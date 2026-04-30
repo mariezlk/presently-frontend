@@ -23,12 +23,6 @@ function App() {
   const [searchedUser, setSearchedUser] = useState()
 
   useEffect(() => {
-    if(currentUser == null){
-      navigate('/login')
-    }
-  }, [currentUser])
-
-  useEffect(() => {
       if (!location.pathname.startsWith('/geschenkeFinden')) return;
       
       if (searchedUser != undefined) {
@@ -37,6 +31,12 @@ function App() {
       }
       navigate('/geschenkeFinden')
   }, [searchedUser])
+
+  useEffect(() => {
+    if(currentUser == null){
+      navigate('/login')
+    }
+  }, [currentUser])
 
   return (
     <Box>
