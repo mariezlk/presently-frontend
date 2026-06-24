@@ -28,7 +28,7 @@ const WishBox = ({wish, onSuccess, searchedUser, token}) => {
     return (  
         <Popover opened={opened} onChange={setOpened} withOverlay overlayProps={{ zIndex: 10, blur: '5px' }} zIndex={11}>
             <Popover.Target>
-                <Flex onClick={() => setOpened(true)} direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px", cursor: wish.bought ? "default" : "pointer", position: "relative"}}>
+                <Flex onClick={() => setOpened(wish.isBought ? false : true)} direction="column" bg="#F5F4D7" w="17vw" h="37vh" style={{ border: "5px solid #5682B4", borderRadius: "20px", cursor: wish.isBought ? "default" : "pointer", position: "relative"}}>
                     {wish.isBought && (
                         <Flex direction="column" pb={140} style={{
                             position: "absolute",
